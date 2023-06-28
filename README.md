@@ -1,99 +1,42 @@
-# php-script-create-shopify-products
+# Shopify Giphy Products
 
-<a name="br1"></a>
+This project allows you to create Shopify products using trending Giphy GIFs and track events with Google Analytics.
 
-Send to candidate
+## Prerequisites
 
-We are gonna create an Online Gift-as-NFT store; this means we are gonna sell gifts in a similar
+- PHP installed on your system
+- Access to a Shopify store
+- Giphy API key
+- Shopify store URL
+- Shopify Admin API access token
 
-way it happened with the NFT Marketplace explosion some time ago.
+## Setup
 
-Have the following pre-requisites ready before the challenge has started; having these
+1. Clone the repository.
 
-prerequisites not ready is going to cause problems, as there is not gonna be enough time to
+2. Create a `.env` file in the root directory of the project with the following variables:
 
-develop the challenge in the pair programming session.
+```
+GIPHY_API_KEY=your_giphy_api_key
+SHOPIFY_STORE_URL=https://yourshopifystore.myshopify.com
+SHOPIFY_ACCESS_TOKEN=your-admin-api-access-token
+GA_TRACKING_ID=your-tracking-id
+```
 
-1\. [Shopify-cli](https://shopify.dev/docs/themes/tools/cli/install)
+Replace `your-admin-api-access-token` with your actual Shopify Admin API access token.
 
-2\. Have natively installed Ruby and/or PHP (you can also use Docker).
+3. Run the root file to create Shopify products using trending Giphy GIFs:
 
-3\. Have a Shopify Partner Account and a log in.
+`php create-shopify-products-from-giphy-trending.php`
 
-4\. Have a Shopify Online [store](https://www.shopify.com/partners/blog/shopify-online-store)[ ](https://www.shopify.com/partners/blog/shopify-online-store)2.0 created for test and development .
+4. Run the Shopify theme development server with the following command:
 
-5\. Recommended but not mandatory: Pull the sample theme the app comes with (Dawn) to
+`shopify theme dev --store=SHOPIFY_STORE_URL`
 
-modify in your local machine, or prepare yourself to create a theme from scratch using
+Replace `SHOPIFY_STORE_URL` with the URL of your Shopify store.
 
-[best](https://shopify.dev/docs/themes/best-practices)[ ](https://shopify.dev/docs/themes/best-practices)[practices](https://shopify.dev/docs/themes/best-practices).
+5. Go to the catalogs page in your Shopify store and search for a Giphy GIF.
 
-6\. Get the following values for development
+6. Click on the GIF and check if it triggers the Google Analytics event.
 
-**Keys Needed**
-
-giphy_api_key = 'your-giphy-api-key'
-
-shopify_url = 'https://your-store-name.myshopify.com'
-
-secret_token = ‘your-shopify-secret-token’
-
-The Giphy API key **is a real value** provided by the company for you to use in querying the
-
-Giphy API, which is gonna be done in the next step. For the other values, please follow next
-
-step.
-
-7\. For the shopify values, you are gonna need to authorize a private app to access your
-
-store; for this:
-
-a. Log in to your Shopify admin.
-
-b. From your Shopify admin, go to Apps.
-
-<a name="br2"></a>
-
-c. Click on Allow Custom Development Apps and accept terms and conditions.
-
-d. Click on 'Create new custom app' and provide your developer name and email.
-
-e. In the Admin API section, select the areas of your store that you want the app to
-
-access. For the task at hand, you'll need access to 'Products’ and 'Themes'. Set
-
-their access to 'Read and write'.
-
-f. Click 'Save' to create the app.
-
-g. We are gonna use the Admin [API](https://shopify.dev/docs/api/admin). For this we need to retrieve the token. Go to
-
-the API Credentials tab and retrieve it.
-
-<a name="br3"></a>
-
-8\. Create a script in the root of this store that will query the Giphy API Trending [endpoin](https://developers.giphy.com/docs/api/endpoint/#trending)[t](https://developers.giphy.com/docs/api/endpoint/#trending).
-
-Please build this script in either Ruby or PHP, whatever language you feel more
-
-comfortable with. Then, for each gif pulled, please add it as a product using the Shopify
-
-product admin [AP](https://shopify.dev/docs/api/admin)[I](https://shopify.dev/docs/api/admin). Gifs are gonna have a default variant with a random price. Add at
-
-least one more variant per gif where it changes is the height and width of the Gif. This
-
-script should be executable from the command line and include error handling for cases
-
-such as failed API calls or rate limiting. Make sure GIF still images are loaded as product
-
-images. In the catalogs page and the GIF is in movement in the product detail page
-
-Note: Please don’t commit sensitive values like API keys to Github or any source control tool;
-
-Use .env files to handle these values.
-
-9\. Add the code done until now to a Github/Gitlab/Bitbucket public repo.
-
-10\. Create a Google (or use your existing Google) account, and set up [GA4](https://support.google.com/analytics/answer/9304153#account)[ ](https://support.google.com/analytics/answer/9304153#account)to be used with
-
-your account and this new store. We are gonna track user interactions in the store.
+Note: Make sure you have set up Google Analytics properly and configured the event tracking.
