@@ -493,7 +493,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-NMEHWVNEE8');
+    const googleAnalyticsConfig = {
+      trackingId: process.env.GA_TRACKING_ID || 'G-NMEHWVNEE8',
+    };
+    gtag('config', googleAnalyticsConfig.trackingId);
 
     // Trigger the event when the main product page is visited
     gtag('event', 'page_view', {

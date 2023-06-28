@@ -192,7 +192,11 @@
                   dataLayer.push(arguments);
                 }
                 gtag('js', new Date());
-                gtag('config', 'G-NMEHWVNEE8');
+                const googleAnalyticsConfig = {
+                  trackingId: process.env.GA_TRACKING_ID || 'G-NMEHWVNEE8',
+                };
+
+                gtag('config', googleAnalyticsConfig.trackingId);
 
                 // Trigger the custom event when a card-product is clicked
                 gtag('event', 'card_product_click', {
