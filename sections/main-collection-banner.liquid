@@ -4,7 +4,7 @@
 {%- style -%}
   @media screen and (max-width: 749px) {
     .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{settings.media_shadow_vertical_offset | at_least: 0}}px + 2rem);
+      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
     }
   }
 {%- endstyle -%}
@@ -28,11 +28,11 @@
             type="search"
             name="q"
             placeholder="Search for gifts..."
-            class="border border-gray-300 py-2 px-3 rounded-l-md focus:outline-none focus:ring-2 focus:ring-black"
+            class="border border-gray-300 py-3 px-4 rounded-l-md focus:outline-none focus:ring-2 focus:ring-black"
           >
           <button
             type="submit"
-            class="bg-black hover:bg-gray-900 text-white py-2 px-6 rounded-r-md focus:outline-none focus:ring-2 focus:ring-black"
+            class="bg-black hover:bg-gray-900 text-white py-3 px-8 rounded-r-md focus:outline-none focus:ring-2 focus:ring-black"
           >
             Search
           </button>
