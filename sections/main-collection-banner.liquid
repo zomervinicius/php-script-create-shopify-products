@@ -4,15 +4,15 @@
 {%- style -%}
   @media screen and (max-width: 749px) {
     .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+      padding-bottom: calc({{settings.media_shadow_vertical_offset | at_least: 0}}px + 2rem);
     }
   }
 {%- endstyle -%}
 
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} flex justify-around scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
+      <h1 class="collection-hero__title text-4xl">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
       </h1>
@@ -20,6 +20,24 @@
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
       {%- endif -%}
+    </div>
+    <div class="flex items-center">
+      <div class="flex items-center">
+        <form action="/search" method="GET" role="search" class="flex items-center">
+          <input
+            type="search"
+            name="q"
+            placeholder="Search for gifts..."
+            class="border border-gray-300 py-2 px-3 rounded-l-md focus:outline-none focus:ring-2 focus:ring-black"
+          >
+          <button
+            type="submit"
+            class="bg-black hover:bg-gray-900 text-white py-2 px-6 rounded-r-md focus:outline-none focus:ring-2 focus:ring-black"
+          >
+            Search
+          </button>
+        </form>
+      </div>
     </div>
 
     {%- if section.settings.show_collection_image and collection.image -%}
